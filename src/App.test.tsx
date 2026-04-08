@@ -44,6 +44,10 @@ describe("App", () => {
     expect(screen.getByRole("article", { name: "SRPG27 Field Balance" })).toBeInTheDocument();
     expect(screen.getByRole("article", { name: "SRPK87 Compact Polish" })).toBeInTheDocument();
     expect(screen.getAllByText("Bracelet / strap")).toHaveLength(4);
+    expect(screen.getByRole("img", { name: "SRPD55 Night-Dial Sports watch illustration" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "SSK003 GMT Blue watch illustration" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "SRPG27 Field Balance watch illustration" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "SRPK87 Compact Polish watch illustration" })).toBeInTheDocument();
 
     const spotlight = screen.getByRole("region", { name: "Compare the mood at a glance." });
     expect(within(spotlight).getByText("Style mood")).toBeInTheDocument();
