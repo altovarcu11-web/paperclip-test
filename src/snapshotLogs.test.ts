@@ -15,16 +15,18 @@ describe("snapshot logs", () => {
 
     expect(content).toContain("# Snapshot Log");
     expect(content).toContain("## 2026-04-09 12:02:00 -05");
-    expect(content).toContain("who requested the change");
-    expect(content).toContain("issue/task reference");
-    expect(content).toContain("result");
-    expect(content).toContain("branch updated");
-    expect(content).toContain("commit hash");
-    expect(content).toContain("summary of what changed");
-    expect(content).toContain("relevant files changed");
-    expect(content).toContain("number of files changed");
-    expect(content).toContain("preview link");
-    expect(content).toContain("verification results");
+    expect(content).toContain("### Metadata");
+    expect(content).toContain("- timestamp:");
+    expect(content).toContain("- requester:");
+    expect(content).toContain("- issue or task reference:");
+    expect(content).toContain("- result:");
+    expect(content).toContain("- branch updated:");
+    expect(content).toContain("- commit hash:");
+    expect(content).toContain("- number of files changed:");
+    expect(content).toContain("### Summary");
+    expect(content).toContain("### Relevant Files Changed");
+    expect(content).toContain("### Verification");
+    expect(content).toContain("### Preview");
     expect(content).toContain("snapshot log system was created");
     expect(content).toContain("Only the CTO should maintain and update these logs after commits and pushes.");
   });
