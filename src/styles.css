@@ -148,6 +148,7 @@ h3 {
 }
 
 .hero-copy {
+  min-width: 0;
   display: grid;
   align-content: end;
   gap: 1.2rem;
@@ -246,6 +247,7 @@ h3 {
 
 .hero-visual {
   position: relative;
+  min-width: 0;
   min-height: 520px;
   display: grid;
   place-items: center;
@@ -354,6 +356,10 @@ h3 {
   max-width: 64ch;
 }
 
+.section-heading > * {
+  min-width: 0;
+}
+
 .section-heading-split {
   grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
   align-items: end;
@@ -375,6 +381,7 @@ h3 {
 .portfolio-link {
   --accent: var(--gold);
   height: 100%;
+  min-width: 0;
   display: grid;
   gap: 0.45rem;
   padding: 1.2rem;
@@ -394,7 +401,8 @@ h3 {
 }
 
 .portfolio-link strong,
-.portfolio-link em {
+.portfolio-link em,
+.portfolio-link small {
   font-style: normal;
 }
 
@@ -406,6 +414,15 @@ h3 {
 .portfolio-link em {
   color: var(--muted);
   line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-link small {
+  color: color-mix(in srgb, var(--accent) 74%, white 26%);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .feature-card {
@@ -423,6 +440,7 @@ h3 {
 
 .feature-visual {
   position: relative;
+  min-width: 0;
   min-height: 300px;
   border-radius: calc(var(--radius-lg) - 8px);
   background:
@@ -462,6 +480,7 @@ h3 {
 }
 
 .feature-copy {
+  min-width: 0;
   display: grid;
   gap: 0.9rem;
   align-content: center;
@@ -483,6 +502,14 @@ h3 {
   font-weight: 700;
 }
 
+.feature-design-note {
+  padding: 0.95rem 1rem;
+  border-left: 2px solid color-mix(in srgb, var(--accent) 72%, white 28%);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: color-mix(in srgb, var(--accent) 10%, rgba(255, 255, 255, 0.03));
+  color: color-mix(in srgb, var(--text) 88%, var(--muted) 12%);
+}
+
 .highlight-list {
   display: flex;
   flex-wrap: wrap;
@@ -501,7 +528,7 @@ h3 {
 
 .spec-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 0.85rem;
 }
 
@@ -526,6 +553,30 @@ h3 {
   color: var(--text);
   font-weight: 600;
   line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.ideal-callout {
+  display: grid;
+  gap: 0.45rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-md);
+  background:
+    radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 14%, transparent), transparent 36%),
+    rgba(255, 255, 255, 0.03);
+}
+
+.ideal-callout span {
+  color: color-mix(in srgb, var(--accent) 78%, white 22%);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ideal-callout p {
+  color: var(--text);
 }
 
 .matrix-panel {
@@ -548,6 +599,7 @@ h3 {
 }
 
 .matrix-label {
+  min-width: 0;
   color: var(--text);
   font-weight: 700;
 }
@@ -559,8 +611,10 @@ h3 {
 }
 
 .matrix-values span {
+  min-width: 0;
   color: var(--muted);
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .craft-panel {
@@ -612,22 +666,39 @@ h3 {
   }
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 960px) {
   .hero-panel,
   .feature-card,
-  .section-heading-split {
+  .section-heading-split,
+  .matrix-row {
     grid-template-columns: 1fr;
   }
 
   .portfolio-grid,
-  .pillar-grid {
+  .pillar-grid,
+  .matrix-values {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .credibility-list,
-  .spec-grid,
-  .matrix-values {
+  .spec-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-panel {
+    min-height: auto;
+  }
+
+  .hero-copy {
+    align-content: start;
+  }
+
+  .hero-visual {
+    min-height: 420px;
+  }
+
+  .feature-visual {
+    min-height: 260px;
   }
 }
 
@@ -647,6 +718,34 @@ h3 {
   h1 {
     max-width: 12ch;
     font-size: clamp(3rem, 14vw, 4.4rem);
+  }
+
+  .hero-panel {
+    gap: var(--space-3);
+    min-height: auto;
+    padding: 1rem;
+  }
+
+  .hero-copy,
+  .hero-visual {
+    padding: 0.75rem;
+  }
+
+  .hero-visual {
+    min-height: 360px;
+  }
+
+  .feature-card {
+    padding: 1rem;
+  }
+
+  .feature-visual {
+    min-height: 220px;
+  }
+
+  .hero-text,
+  .section-heading p {
+    max-width: 100%;
   }
 
   .credibility-list,

@@ -3,15 +3,19 @@ import type { CSSProperties } from "react";
 type Watch = {
   accent: string;
   diameter: string;
+  designNotes: string;
   family: string;
   highlights: string[];
   id: string;
   idealFor: string;
+  idealOwner: string;
   mood: string;
   movement: string;
   name: string;
+  priceBand: string;
   positioning: string;
   reference: string;
+  stylePosture: string;
   summary: string;
   tagline: string;
   waterResistance: string;
@@ -30,10 +34,14 @@ const watches: Watch[] = [
       "It is the reference for someone who wants real tool-watch legitimacy but has no interest in oversized case drama or loud collector cosplay.",
     highlights: ["6R35 automatic movement", "40.5 mm case", "200 m water resistance"],
     idealFor: "Daily wear with actual swimming, travel, and weekend rotation.",
+    idealOwner: "Active daily wearer",
     movement: "6R35 automatic",
     diameter: "40.5 mm",
     waterResistance: "200 m",
     mood: "Tool-watch calm",
+    stylePosture: "Tool watch",
+    priceBand: "$1.2k-$1.6k",
+    designNotes: "Grey sunburst dial and compact diver proportions keep the watch credible without turning theatrical.",
     accent: "#d6b06f",
   },
   {
@@ -48,10 +56,14 @@ const watches: Watch[] = [
       "This is the watch for someone who wants Seiko to feel dressier and more tactile, with the dial doing most of the emotional work before the rest of the room notices the case.",
     highlights: ["4R35 automatic movement", "40.5 mm case", "Box-shaped Hardlex crystal"],
     idealFor: "Dinner, office tailoring, and buyers drawn to dial character first.",
+    idealOwner: "Dial-first dresser",
     movement: "4R35 automatic",
     diameter: "40.5 mm",
     waterResistance: "50 m",
     mood: "Dress-led warmth",
+    stylePosture: "Dress watch",
+    priceBand: "$350-$500",
+    designNotes: "Sunray blue dial and polished cocktail-watch cues make the surface feel atmospheric before the case size matters.",
     accent: "#87a6ff",
   },
   {
@@ -66,10 +78,14 @@ const watches: Watch[] = [
       "It suits the visitor who values exactness, movement between cities, and a more engineered kind of luxury than the softer warmth of Presage or heritage-led King Seiko.",
     highlights: ["5X83 GPS Solar caliber", "Titanium case", "Dual-time chronograph layout"],
     idealFor: "Frequent travelers and buyers who want capability to lead the story.",
+    idealOwner: "Precision traveler",
     movement: "5X83 GPS Solar",
     diameter: "43.3 mm",
     waterResistance: "100 m",
     mood: "Technical velocity",
+    stylePosture: "Travel instrument",
+    priceBand: "$2.1k-$2.6k",
+    designNotes: "Titanium architecture and satellite-synced display logic give Astron a luxury language built on capability.",
     accent: "#6ed0c8",
   },
   {
@@ -84,10 +100,14 @@ const watches: Watch[] = [
       "For the buyer who wants Seiko to feel more rarefied and architectural, King Seiko offers the brand's heritage language with less softness and more edge.",
     highlights: ["6L35 automatic movement", "38.6 mm case", "Zaratsu-inspired finishing cues"],
     idealFor: "Collectors who care about silhouette, history, and sharp finishing.",
+    idealOwner: "Heritage-focused collector",
     movement: "6L35 automatic",
     diameter: "38.6 mm",
     waterResistance: "50 m",
     mood: "Heritage precision",
+    stylePosture: "Heritage dress-sport",
+    priceBand: "$2.8k-$3.4k",
+    designNotes: "Faceted case lines and restrained silver-dial sharpness keep the heritage pitch architectural instead of nostalgic.",
     accent: "#d59aa2",
   },
 ];
@@ -100,9 +120,9 @@ const credibilityPoints = [
 
 const matrixRows = [
   { label: "Movement", values: watches.map((watch) => watch.movement) },
-  { label: "Style posture", values: ["Tool watch", "Dress watch", "Travel instrument", "Heritage dress-sport"] },
+  { label: "Style posture", values: watches.map((watch) => watch.stylePosture) },
   { label: "Water resistance", values: watches.map((watch) => watch.waterResistance) },
-  { label: "Ideal owner", values: ["Active daily wearer", "Dial-first dresser", "Precision traveler", "Heritage-focused collector"] },
+  { label: "Ideal owner", values: watches.map((watch) => watch.idealOwner) },
   { label: "Overall mood", values: watches.map((watch) => watch.mood) },
 ];
 
@@ -192,6 +212,7 @@ export function App() {
                 <span className="portfolio-family">{watch.family}</span>
                 <strong>{watch.reference}</strong>
                 <em>{watch.tagline}</em>
+                <small>{watch.stylePosture}</small>
               </a>
             </li>
           ))}
@@ -229,11 +250,13 @@ export function App() {
                 <p className="feature-meta">
                   <span>{watch.family}</span>
                   <span>{watch.reference}</span>
+                  <span>{watch.priceBand}</span>
                 </p>
                 <h3>{`${watch.reference} ${watch.name}`}</h3>
                 <p className="feature-tagline">{watch.tagline}</p>
                 <p>{watch.summary}</p>
                 <p>{watch.positioning}</p>
+                <p className="feature-design-note">{watch.designNotes}</p>
 
                 <ul className="highlight-list">
                   {watch.highlights.map((highlight) => (
@@ -251,10 +274,19 @@ export function App() {
                     <dd>{watch.diameter}</dd>
                   </div>
                   <div>
-                    <dt>Ideal for</dt>
-                    <dd>{watch.idealFor}</dd>
+                    <dt>Water resistance</dt>
+                    <dd>{watch.waterResistance}</dd>
+                  </div>
+                  <div>
+                    <dt>Price band</dt>
+                    <dd>{watch.priceBand}</dd>
                   </div>
                 </dl>
+
+                <div className="ideal-callout">
+                  <span>Ideal for</span>
+                  <p>{watch.idealFor}</p>
+                </div>
               </div>
             </article>
           ))}
