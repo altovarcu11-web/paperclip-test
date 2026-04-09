@@ -1,317 +1,331 @@
 import type { CSSProperties } from "react";
 
-type WatchModel = {
+type Watch = {
   accent: string;
-  bestFor: string;
-  code: string;
-  descriptor: string;
+  diameter: string;
+  family: string;
+  highlights: string[];
   id: string;
-  intro: string;
+  idealFor: string;
   mood: string;
+  movement: string;
   name: string;
-  quickSpec: string;
-  specs: string[];
-  standout: string;
-  story: string;
-  strap: string;
-  wristRead: string;
+  positioning: string;
+  reference: string;
+  summary: string;
+  tagline: string;
+  waterResistance: string;
 };
 
-const watchModels: WatchModel[] = [
+const watches: Watch[] = [
   {
-    id: "srpd55",
-    code: "SRPD55",
-    name: "Night-Dial Sports",
-    descriptor: "Dark everyday sports watch",
-    intro:
-      "A charcoal dial, brushed steel case, and straightforward bezel make this the cleanest entry point into the Seiko 5 Sports family.",
-    story:
-      "It feels balanced with denim, knitwear, or a simple tee, and it reads like a dependable daily automatic instead of a statement piece.",
-    specs: ["42.5 mm case", "Black sunray dial", "4R36 automatic movement"],
-    strap: "Solid-link steel bracelet with a familiar dive-style taper.",
-    quickSpec: "Dark everyday sports watch",
-    mood: "Understated sport",
-    bestFor: "Daily rotation",
-    standout: "Monochrome dial and bezel restraint",
-    wristRead: "Confident without shouting",
-    accent: "#d8b57a",
+    id: "spb143",
+    family: "Prospex",
+    reference: "SPB143",
+    name: "Modern Diver",
+    tagline: "Diver restraint without retro costume",
+    summary:
+      "The SPB143 brings Seiko's dive-watch credibility into a cleaner, more wearable shape. The grey sunburst dial, compact proportions, and softly vintage cues make it feel considered instead of theatrical.",
+    positioning:
+      "It is the reference for someone who wants real tool-watch legitimacy but has no interest in oversized case drama or loud collector cosplay.",
+    highlights: ["6R35 automatic movement", "40.5 mm case", "200 m water resistance"],
+    idealFor: "Daily wear with actual swimming, travel, and weekend rotation.",
+    movement: "6R35 automatic",
+    diameter: "40.5 mm",
+    waterResistance: "200 m",
+    mood: "Tool-watch calm",
+    accent: "#d6b06f",
   },
   {
-    id: "ssk003",
-    code: "SSK003",
-    name: "GMT Blue",
-    descriptor: "Travel-ready GMT energy",
-    intro:
-      "The blue dial and two-tone bezel give the Seiko 5 GMT line a brighter, more kinetic presence while keeping the same approachable mechanical feel.",
-    story:
-      "If you want the family formula with extra motion and color, this is the reference that looks like it is already planning the next flight.",
-    specs: ["42.5 mm case", "Blue GMT bezel", "4R34 automatic GMT movement"],
-    strap: "Five-link bracelet that adds a little more shimmer on wrist.",
-    quickSpec: "Travel-ready GMT energy",
-    mood: "Modern traveler",
-    bestFor: "Frequent flyers",
-    standout: "Fourth GMT hand and bi-color bezel",
-    wristRead: "Sharper and more extroverted",
-    accent: "#6288ff",
+    id: "srpb41",
+    family: "Presage",
+    reference: "SRPB41",
+    name: "Cocktail Time",
+    tagline: "Dial texture and evening polish",
+    summary:
+      "The SRPB41 leans on dial depth, polished surfaces, and softer formality. It trades the Prospex sense of readiness for a more atmospheric, almost lounge-lit kind of refinement.",
+    positioning:
+      "This is the watch for someone who wants Seiko to feel dressier and more tactile, with the dial doing most of the emotional work before the rest of the room notices the case.",
+    highlights: ["4R35 automatic movement", "40.5 mm case", "Box-shaped Hardlex crystal"],
+    idealFor: "Dinner, office tailoring, and buyers drawn to dial character first.",
+    movement: "4R35 automatic",
+    diameter: "40.5 mm",
+    waterResistance: "50 m",
+    mood: "Dress-led warmth",
+    accent: "#87a6ff",
   },
   {
-    id: "srpg27",
-    code: "SRPG27",
-    name: "Field Balance",
-    descriptor: "Field-first clarity",
-    intro:
-      "Arabic numerals, matte finishing, and disciplined contrast shift the Seiko 5 formula toward field-watch legibility without losing its casual versatility.",
-    story:
-      "It lands best for someone who values legibility and function first, but still wants enough polish to wear it beyond weekends and utility clothing.",
-    specs: ["39.4 mm case", "Full Arabic dial", "Curved Hardlex crystal"],
-    strap: "Brown leather strap that softens the tool-watch posture.",
-    quickSpec: "Field-first clarity",
-    mood: "Utility calm",
-    bestFor: "Legibility lovers",
-    standout: "Compact field proportions with full numerals",
-    wristRead: "Lean, tidy, and practical",
-    accent: "#8ec5a6",
+    id: "ssh167",
+    family: "Astron",
+    reference: "SSH167",
+    name: "GPS Solar Chronograph",
+    tagline: "Precision travel with a technical edge",
+    summary:
+      "Astron shifts the page from mechanical romance into high-precision travel. The SSH167 feels like Seiko proving it can do satellite-synced clarity, lightweight titanium, and cross-time-zone confidence without losing design discipline.",
+    positioning:
+      "It suits the visitor who values exactness, movement between cities, and a more engineered kind of luxury than the softer warmth of Presage or heritage-led King Seiko.",
+    highlights: ["5X83 GPS Solar caliber", "Titanium case", "Dual-time chronograph layout"],
+    idealFor: "Frequent travelers and buyers who want capability to lead the story.",
+    movement: "5X83 GPS Solar",
+    diameter: "43.3 mm",
+    waterResistance: "100 m",
+    mood: "Technical velocity",
+    accent: "#6ed0c8",
   },
   {
-    id: "srpk87",
-    code: "SRPK87",
-    name: "Compact Polish",
-    descriptor: "Compact polished ease",
-    intro:
-      "A smaller case, warm champagne accents, and polished surfaces make this the most dressed-up Seiko 5 in the set without pushing into formal-watch stiffness.",
-    story:
-      "It suits slimmer wrists and cleaner outfits, delivering the same everyday Seiko practicality in a package that feels more refined at first glance.",
-    specs: ["38 mm case", "Champagne-toned dial", "Exhibition caseback"],
-    strap: "Polished bracelet that keeps the silhouette neat and compact.",
-    quickSpec: "Compact polished ease",
-    mood: "Casual dress",
-    bestFor: "Smaller wrists",
-    standout: "Dress-leaning finish in a compact case",
-    wristRead: "Trim and polished",
-    accent: "#e6c998",
-  },
-];
-
-const comparisonRows = [
-  {
-    label: "Style mood",
-    values: watchModels.map((model) => model.mood),
-  },
-  {
-    label: "Best for",
-    values: watchModels.map((model) => model.bestFor),
-  },
-  {
-    label: "Standout detail",
-    values: watchModels.map((model) => model.standout),
-  },
-  {
-    label: "Wrist read",
-    values: watchModels.map((model) => model.wristRead),
+    id: "sje095",
+    family: "King Seiko",
+    reference: "SJE095",
+    name: "Sharp Heritage",
+    tagline: "Sharp heritage tailored for modern collectors",
+    summary:
+      "The SJE095 is about proportion, facets, and discipline. Its appeal comes from finishing, case architecture, and the way a vintage-inflected dress-sport watch can still look severe and modern.",
+    positioning:
+      "For the buyer who wants Seiko to feel more rarefied and architectural, King Seiko offers the brand's heritage language with less softness and more edge.",
+    highlights: ["6L35 automatic movement", "38.6 mm case", "Zaratsu-inspired finishing cues"],
+    idealFor: "Collectors who care about silhouette, history, and sharp finishing.",
+    movement: "6L35 automatic",
+    diameter: "38.6 mm",
+    waterResistance: "50 m",
+    mood: "Heritage precision",
+    accent: "#d59aa2",
   },
 ];
 
-const ownershipNotes = [
+const credibilityPoints = [
+  "Mechanical heritage and modern tech under one brand roof",
+  "From saturated dress dials to real dive-watch capability",
+  "Design language that scales from travel instrument to tailored heirloom",
+];
+
+const matrixRows = [
+  { label: "Movement", values: watches.map((watch) => watch.movement) },
+  { label: "Style posture", values: ["Tool watch", "Dress watch", "Travel instrument", "Heritage dress-sport"] },
+  { label: "Water resistance", values: watches.map((watch) => watch.waterResistance) },
+  { label: "Ideal owner", values: ["Active daily wearer", "Dial-first dresser", "Precision traveler", "Heritage-focused collector"] },
+  { label: "Overall mood", values: watches.map((watch) => watch.mood) },
+];
+
+const craftPillars = [
   {
-    title: "Dependable automatic backbone",
-    body: "Three of the four references share Seiko's dependable 4R36 engine, keeping hand-winding, hacking, and everyday serviceability at the center of the lineup.",
+    title: "Case language stays deliberate",
+    body: "Whether the watch is dive-led, dress-led, or heritage-led, Seiko keeps working through shape, bevels, and posture rather than oversized ornament.",
   },
   {
-    title: "Ready for normal daily wear",
-    body: "The sports-rooted cases are designed for rain, travel, and normal off-duty use without forcing the watches into precious-object territory.",
+    title: "Movement choices match the mission",
+    body: "Mechanical calibers carry the emotional weight where warmth matters, while Astron shows Seiko can pivot into precision travel without weakening the brand.",
   },
   {
-    title: "Practical legibility wins",
-    body: "Legibility and convenience stay core to the family, making each watch easy to read quickly and practical for real daily wear.",
-  },
-  {
-    title: "Seiko 5 variety without identity drift",
-    body: "Each reference leans a different direction, but the shared case architecture, movement philosophy, and honest pricing keep them recognizably related.",
+    title: "Dial identity does real brand work",
+    body: "Texture, legibility, and color are never afterthoughts here. Each family uses the dial to express purpose before the wearer ever reads the spec sheet.",
   },
 ];
 
 export function App() {
   return (
-    <main className="app-shell">
-      <section className="hero" aria-label="Four Seiko 5 references. Four different temperaments.">
-        <div className="hero-noise" aria-hidden="true" />
+    <main className="page-shell" id="top">
+      <section
+        className="hero-panel"
+        aria-label="A curated Seiko portfolio spanning tool, dress, travel, and heritage watches."
+      >
         <div className="hero-copy">
-          <p className="eyebrow">Seiko 5 Sports</p>
-          <h1>Four Seiko 5 references. Four different temperaments.</h1>
-          <p className="hero-body">
-            From the dark all-rounder SRPD55 to the travel-minded SSK003, this lineup shows how far Seiko&apos;s
-            everyday mechanical formula can stretch without losing its identity.
+          <p className="section-kicker">Curated Seiko Collection</p>
+          <h1>One Seiko name. Four very different ways to wear it.</h1>
+          <p className="hero-text">
+            Prospex, Presage, Astron, and King Seiko show how far the brand can stretch without losing its point of
+            view. This page is not about a single hit model. It is about Seiko&apos;s ability to speak tool, dress,
+            travel, and heritage fluently in one portfolio.
           </p>
           <div className="hero-actions">
-            <a className="primary-link" href="#models">
-              Explore the four references
+            <a className="button-primary" href="#portfolio">
+              Explore the portfolio
+            </a>
+            <a className="button-secondary" href="#matrix">
+              Compare the references
             </a>
           </div>
-          <ul className="hero-facts">
-            <li>Automatic 4R36 caliber</li>
-            <li>100 m daily-ready water resistance</li>
-            <li>LumiBrite hands and day-date utility</li>
+          <ul className="credibility-list">
+            {credibilityPoints.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
           </ul>
         </div>
 
         <div className="hero-visual" aria-hidden="true">
-          <div className="hero-halo" />
-          <div className="hero-orbit" />
-          <div className="hero-watch hero-watch-main">
-            <div className="watch-face" />
+          <div className="hero-orbit hero-orbit-large" />
+          <div className="hero-orbit hero-orbit-small" />
+          <div className="hero-column hero-column-left">
+            <span>Prospex</span>
+            <span>Presage</span>
           </div>
-          <div className="hero-watch hero-watch-secondary">
-            <div className="watch-face" />
+          <div className="hero-centerpiece">
+            <div className="hero-core" />
+            <div className="hero-core hero-core-secondary" />
           </div>
-          <p className="hero-tag hero-tag-top">Shared Seiko 5 backbone, tuned for four different routines.</p>
-          <p className="hero-tag hero-tag-bottom">One mechanical family spanning sport, travel, field, and dressier daily wear.</p>
+          <div className="hero-column hero-column-right">
+            <span>Astron</span>
+            <span>King Seiko</span>
+          </div>
+          <p className="hero-caption hero-caption-top">Tool to dress, without losing brand discipline.</p>
+          <p className="hero-caption hero-caption-bottom">A portfolio built on different watch moods, not one generic formula.</p>
         </div>
       </section>
 
-      <section className="section-panel" aria-label="Pick the Seiko 5 that fits your wrist and routine.">
+      <section className="content-panel" id="portfolio" aria-label="Quickly jump to the Seiko family that fits your taste.">
         <div className="section-heading">
-          <p className="eyebrow">Quick scan</p>
-          <h2>Four watches, one shared mechanical backbone.</h2>
-          <p className="section-copy">
-            Use the lineup below to jump straight to the reference that matches how you dress, travel, and wear a watch day to day.
+          <p className="section-kicker">Portfolio rail</p>
+          <h2>Four collection directions, one coherent brand.</h2>
+          <p>
+            Start with the family that already sounds closest to your pace, then read deeper once a reference catches
+            your eye.
           </p>
         </div>
-        <ul className="strip-grid">
-          {watchModels.map((model) => (
-            <li key={model.id}>
-              <a className="strip-link" href={`#${model.id}`}>
-                <strong>{model.code}</strong>
-                <span>{model.quickSpec}</span>
-                <em>{model.name}</em>
+        <ul className="portfolio-grid">
+          {watches.map((watch) => (
+            <li key={watch.id}>
+              <a
+                aria-label={`${watch.family} ${watch.reference}`}
+                className="portfolio-link"
+                href={`#${watch.id}`}
+                style={{ "--accent": watch.accent } as CSSProperties}
+              >
+                <span className="portfolio-family">{watch.family}</span>
+                <strong>{watch.reference}</strong>
+                <em>{watch.tagline}</em>
               </a>
             </li>
           ))}
         </ul>
       </section>
 
-      <section className="section-panel" id="models">
-        <div className="section-heading section-heading-inline">
+      <section className="content-panel" aria-labelledby="featured-heading">
+        <div className="section-heading section-heading-split">
           <div>
-            <p className="eyebrow">Model showcase</p>
-            <h2>Choose the reference with the right personality already built in.</h2>
+            <p className="section-kicker">Featured references</p>
+            <h2 id="featured-heading">Four references that prove Seiko is more than one lane.</h2>
           </div>
-          <p className="section-copy">
-            Each reference starts from the same approachable Seiko 5 idea, then pivots toward a distinct personality, use case, and wrist feel.
+          <p>
+            Each card leans into a different reason to choose Seiko, from utility and dial drama to travel precision
+            and sharper heritage finishing.
           </p>
         </div>
-        <div className="models-grid">
-          {watchModels.map((model) => (
+
+        <div className="feature-stack">
+          {watches.map((watch) => (
             <article
-              key={model.id}
-              id={model.id}
-              className="watch-card"
-              aria-label={`${model.code} ${model.name}`}
-              style={
-                {
-                  "--accent": model.accent,
-                  "--glow": `${model.accent}33`,
-                } as CSSProperties
-              }
+              key={watch.id}
+              id={watch.id}
+              className="feature-card"
+              aria-label={`${watch.family} ${watch.reference}`}
+              style={{ "--accent": watch.accent } as CSSProperties}
             >
-              <div className="watch-visual" role="img" aria-label={`${model.code} ${model.name} watch illustration`}>
-                <div className="watch-shell">
-                  <div className="watch-shell-face" />
-                </div>
+              <div className="feature-visual" aria-hidden="true">
+                <div className="visual-ring" />
+                <div className="visual-dial" />
+                <div className="visual-tag">{watch.family}</div>
               </div>
-              <div className="watch-copy">
-                <p className="watch-code">{model.code}</p>
-                <h3>{`${model.code} ${model.name}`}</h3>
-                <p className="watch-descriptor">{model.descriptor}</p>
-                <p>{model.intro}</p>
-                <p>{model.story}</p>
-                <ul className="spec-list">
-                  {model.specs.map((spec) => (
-                    <li key={spec}>{spec}</li>
+
+              <div className="feature-copy">
+                <p className="feature-meta">
+                  <span>{watch.family}</span>
+                  <span>{watch.reference}</span>
+                </p>
+                <h3>{`${watch.reference} ${watch.name}`}</h3>
+                <p className="feature-tagline">{watch.tagline}</p>
+                <p>{watch.summary}</p>
+                <p>{watch.positioning}</p>
+
+                <ul className="highlight-list">
+                  {watch.highlights.map((highlight) => (
+                    <li key={highlight}>{highlight}</li>
                   ))}
                 </ul>
-                <p className="watch-strap">
-                  <strong>Bracelet / strap</strong>
-                  {` ${model.strap}`}
-                </p>
+
+                <dl className="spec-grid">
+                  <div>
+                    <dt>Movement</dt>
+                    <dd>{watch.movement}</dd>
+                  </div>
+                  <div>
+                    <dt>Diameter</dt>
+                    <dd>{watch.diameter}</dd>
+                  </div>
+                  <div>
+                    <dt>Ideal for</dt>
+                    <dd>{watch.idealFor}</dd>
+                  </div>
+                </dl>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="spotlight" aria-label="Compare the mood at a glance.">
-        <div className="spotlight-lead">
-          <p className="eyebrow">Comparison spotlight</p>
-          <h2>One platform, four different reasons to wear it.</h2>
+      <section className="matrix-panel" id="matrix" aria-label="Structured comparison of the featured Seiko references.">
+        <div className="section-heading">
+          <p className="section-kicker">Collection matrix</p>
+          <h2>How the four references separate on wrist.</h2>
           <p>
-            The point of the Seiko 5 family is not just value. It is the ability to pick the same dependable core in a personality that already matches your wardrobe and routine.
+            After the editorial read, the matrix makes the practical differences explicit so the choice feels cleaner.
           </p>
         </div>
-        <div className="comparison-grid">
-          <div className="comparison-row comparison-row-header">
-            <span className="comparison-label">Reference</span>
-            <div className="comparison-values comparison-values-header">
-              {watchModels.map((model) => (
-                <span key={model.code}>{model.code}</span>
+
+        <div className="matrix-row matrix-header">
+          <span className="matrix-label">Reference</span>
+          <div className="matrix-values">
+            {watches.map((watch) => (
+              <span key={watch.reference}>{watch.reference}</span>
+            ))}
+          </div>
+        </div>
+        {matrixRows.map((row) => (
+          <div key={row.label} className="matrix-row">
+            <span className="matrix-label">{row.label}</span>
+            <div className="matrix-values">
+              {row.values.map((value, index) => (
+                <span key={`${row.label}-${index}`}>{value}</span>
               ))}
             </div>
           </div>
-          {comparisonRows.map((row) => (
-            <div key={row.label} className="comparison-row">
-              <span className="comparison-label">{row.label}</span>
-              <div className="comparison-values">
-                {row.values.map((value) => (
-                  <span key={`${row.label}-${value}`}>{value}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
+        ))}
       </section>
 
-      <section className="section-panel heritage">
-        <div className="heritage-copy">
-          <p className="eyebrow">Why Seiko 5 still works</p>
-          <h2>The range is broad, but the appeal stays practical.</h2>
-        </div>
-        <div className="heritage-copy">
+      <section className="content-panel craft-panel" aria-labelledby="craft-heading">
+        <div className="section-heading section-heading-split">
+          <div>
+            <p className="section-kicker">Craft logic</p>
+            <h2 id="craft-heading">Why these watches still feel unmistakably Seiko.</h2>
+          </div>
           <p>
-            Seiko 5 continues to matter because it lets you choose character without giving up honest everyday usability. You get mechanical credibility, legibility, and a case design that still feels comfortable in real routines.
-          </p>
-          <p>
-            That is why this lineup works as a set: SRPD55 covers the neutral sports lane, SSK003 adds movement and travel energy, SRPG27 sharpens the field-watch brief, and SRPK87 trims the idea into something cleaner and more polished.
+            The watches do not need to look identical to feel related. Seiko&apos;s case language, dial discipline, and
+            movement choices keep the portfolio connected while each family stays useful to a different buyer.
           </p>
         </div>
-      </section>
 
-      <section className="section-panel">
-        <div className="section-heading">
-          <p className="eyebrow">Ownership details</p>
-          <h2>Built to stay easy in everyday wear.</h2>
-        </div>
-        <div className="ownership-grid">
-          {ownershipNotes.map((note) => (
-            <article key={note.title} className="ownership-card">
-              <h3>{note.title}</h3>
-              <p>{note.body}</p>
+        <div className="pillar-grid">
+          {craftPillars.map((pillar) => (
+            <article key={pillar.title} className="pillar-card">
+              <h3>{pillar.title}</h3>
+              <p>{pillar.body}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section-panel closing">
-        <p className="eyebrow">Closing note</p>
-        <h2>Start with the reference that already matches how you dress.</h2>
-        <p className="section-copy">
-          The strongest Seiko 5 choice is usually the one that already feels natural with your routine. Choose the sports watch, the GMT, the field watch, or the compact polished option based on the life you are actually living, then let the mechanical common ground do the rest.
+      <section className="close-panel" aria-labelledby="close-heading">
+        <p className="section-kicker">Collector close</p>
+        <h2 id="close-heading">Pick the Seiko that already matches your pace.</h2>
+        <p>
+          If you want capability first, start with Prospex. If dial warmth matters most, Presage earns the click. If
+          travel precision is the point, Astron is the answer. If silhouette and finishing lead everything, King Seiko
+          is where the page was always heading.
         </p>
-        <div className="closing-links">
-          <a className="primary-link" href="#models">
-            Return to the lineup
-          </a>
-          <a className="text-link" href="#top">
-            Back to the top
-          </a>
+        <div className="close-links">
+          {watches.map((watch) => (
+            <a key={watch.id} href={`#${watch.id}`}>
+              {`${watch.family} ${watch.reference}`}
+            </a>
+          ))}
         </div>
       </section>
     </main>
